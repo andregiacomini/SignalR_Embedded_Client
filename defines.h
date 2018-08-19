@@ -1,0 +1,74 @@
+#ifndef _DEFINES_H_
+#define _DEFINES_H_
+
+/* arquivo com as definições dos pinos e demais diretivas do projeto */
+
+#include "stdutils.h"
+#include "gpio.h"
+
+#define UART_DBG
+#undef UART_DBG
+#define LCD_DBG
+#undef LCD_DBG
+
+#define PADRAO_DISPARO_DESTRUIDOR_0 0x0008
+#define PADRAO_DISPARO_DESTRUIDOR_1 0x0080
+#define PADRAO_ABERTURA_PORTA 0x00BA
+#define PADRAO_AUTOTESTE 0x00F2
+#define PADRAO_VERIFICA_ARMADO 0x00A0
+#define PADRAO_SISTEMA_ARMADO 0x0FC//0x0001
+#define PADRAO_SISTEMA_DESARMADO 0xC3//0x0002
+#define PADRAO_VERIFICA_BOTOES 0x00AD
+
+#define TIMEOUT_INFINITO 0xFFFF
+#define NO_TIMEOUT 0x0000
+
+/* definição dos pinos do uC usados */
+
+//display LCD
+#define LCD_RS P2_9 
+#define LCD_EN P2_6 
+#define LCD_D4 P2_2 
+#define LCD_D5 P2_3 
+#define LCD_D6 P2_4 
+#define LCD_D7 P2_5 
+
+//atuadores
+#define ATUADOR_GAVETA P1_26 //MOTOR_0_ROTACAO OK
+#define ATUADOR_SENTIDO_GAVETA P1_25 //MOTOR_0_SENTIDO OK
+#define ATUADOR_PORTA P1_28 //OK //NOVO
+#define ATUADOR_SENTIDO_PORTA P1_27//sentido porta OK //NOVO
+#define ATUADOR_GLT P1_30 //OK
+#define ATUADOR_SENTIDO_GLT P1_31 //OK
+#define SIRENE P0_15 //OK
+#define LED_AUTO_TESTE P0_29 //MOTOR_6_SENTIDO OK
+#define LED_SISTEMA_ATIVO P0_30 //MOTOR_7_ROTACAO OK
+#define LED_PORTA_ABERTA P1_23//P0_10 //P1_18 //problema com pullup interno de 2.6V
+
+//sensores
+#define SEN_GAVETA_INICIO P0_5 //FIM_CURSO_MOTOR_6 OK
+#define SEN_GAVETA_POS_1 P0_6 //SENSOR_EXTRA_MOTOR_6 OK
+#define SEN_GAVETA_POS_2 P0_7 //FIM_CURSO_MOTOR_5 OK
+#define SEN_GAVETA_POS_3 P0_8 //SENSOR_EXTRA_MOTOR_5 OK
+#define SEN_GLT_INICIO P1_9 //FIM_CURSO_MOTOR_8 OK
+#define SEN_GLT_FIM P0_22 //SENSOR_EXTRA_MOTOR_8 OK
+//#define SEN_AD_VBAT P0_26  I2C
+//#define SEN_AD_VBAT_CH 3 //AD[0] CH3 I2C
+#define RX_489 P2_1 //NOVO
+#define TX_489 P2_0 //NOVO
+
+#define SEN_AD_VBAT P0_24
+#define SEN_AD_VBAT_CH 1 //AD[0] CH1
+
+//botoes
+#define SEN_PORTA_ALTA P0_21 //FIM_CURSO_MOTOR_4 OK
+#define SEN_PORTA_BAIXA P1_10 //SENSOR PORTA BAIXA OK 	//NOVO
+#define BTN_AUTO_TESTE P1_22 //FIM_CURSO_MOTOR_7
+#define DISPARA_DESTRUIDOR_0 P0_11
+#define DISPARA_DESTRUIDOR_1 P1_24
+#define ABERTURA_PORTA P1_20 //FIM_CURSO_MOTOR_9 //ver o motivo de nao estar funcionando
+#define RETORNO_GAVETA P1_19 //SENSOR_EXTRA_MOTOR_9
+
+
+
+#endif
